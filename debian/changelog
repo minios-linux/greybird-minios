@@ -1,3 +1,12 @@
+greybird-minios-theme (3.23.4) unstable; urgency=medium
+
+  * Rebase the theme on Debian sid greybird-gtk-theme 3.23.4-2.
+  * Include upstream desktop-icon selection and backdrop fixes for
+    xfdesktop4 >= 4.19 in both light and dark variants.
+  * Preserve MiniOS panel styling, GTK 2 support and Bionic build compatibility.
+
+ -- crims0n <crims0n@minios.dev>  Sun, 04 Oct 2026 02:10:58 +0300
+
 greybird-minios-theme (3.23.3) unstable; urgency=medium
 
   * Fork Debian greybird-gtk-theme 3.23.3-1 for MiniOS.

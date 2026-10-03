@@ -1,10 +1,14 @@
 # Greybird-MiniOS
 
 Greybird-MiniOS is the MiniOS fork of the Greybird GTK theme. It is based on
-the Debian `greybird-gtk-theme` 3.23.3-1 source package and installs alongside
+the Debian sid `greybird-gtk-theme` 3.23.4-2 source package and installs alongside
 the original theme under the `Greybird-MiniOS` names. MiniOS-specific changes
 are intentionally kept in the theme sources; the first customization is the
 Xfce panel/task-list styling previously carried as per-user GTK CSS.
+
+The theme includes Greybird 3.23.4's desktop-icon selection and backdrop fixes
+for xfdesktop4 4.19 and later. The MiniOS package retains GTK 2 support and
+Bionic-compatible build tools, unlike the Debian sid binary package.
 
 ## Upstream README
 
