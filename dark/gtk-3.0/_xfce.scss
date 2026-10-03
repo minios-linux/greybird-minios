@@ -1,0 +1,338 @@
+$variant: 'dark';
+
+@import 'colors';
+
+.XfceHeading {
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    background-image: none;
+    background-color: shade($bg_color, 1.18);
+    color: $text_color;
+    text-shadow: 0px 1px $shadow_color;
+}
+
+// MiniOS panel styling: compact launchers, subtle hover states and task indicators.
+#pulseaudio-button > box > image,
+#xfce4-power-manager-plugin > box > image {
+    -gtk-icon-transform: scale(.5);
+}
+
+.xfce4-panel.background {
+    background-color: rgba(36, 36, 36, 0.8);
+    color: $panel_fg_color;
+    font-weight: normal;
+
+    button {
+        margin: 3px 2px;
+        padding: 0 4px;
+        border: none;
+        border-radius: 5px;
+        background-color: transparent;
+        background-image: none;
+        box-shadow: inset 0 -3px transparent;
+        color: #fcfcfc;
+        text-shadow: 0px 1px $shadow_color;
+        transition: background-color 120ms ease-out,
+                    box-shadow 120ms ease-out;
+
+        &:hover,
+        &:active,
+        &:checked,
+        &:active:hover,
+        &:checked:hover {
+            border: none;
+            background-color: rgba(255, 255, 255, 0.10);
+            background-image: none;
+            box-shadow: none;
+            color: #fcfcfc;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:drop(active) {
+            color: $drop_target_color;
+            border: 1px solid $drop_target_color;
+            box-shadow: inset 0 0 0 1px $drop_target_color;
+        }
+    }
+
+
+    // Show Desktop: compact illuminated area instead of an icon.
+    #showdesktop-button {
+        margin: 6px 8px;
+        padding: 0;
+        border: none;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.06);
+        background-image: none;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+        image {
+            opacity: 0;
+        }
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.13);
+            background-image: none;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+        }
+
+        &:checked,
+        &:checked:hover {
+            background-color: rgba(255, 255, 255, 0.13);
+            background-image: none;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.20);
+        }
+    }
+
+    entry { caret-color: $text_color; }
+
+    menu {
+        -gtk-icon-effect: none;
+        text-shadow: none;
+
+        .linked button {
+            @extend %linked;
+            @include button(normal, $menu_color, $text_color);
+            &:disabled {
+                @include button(insensitive);
+                border-color: transparentize($borders_color, 0.5);
+            }
+        }
+    }
+
+    progressbar {
+        margin: 0;
+
+        &.horizontal {
+            trough { min-height: 6px; padding: 0; }
+            progress { min-height: 4px; }
+        }
+
+        &.vertical {
+            trough { min-width: 6px; padding: 0; }
+            progress { min-width: 4px; }
+        }
+
+        progress { border-radius: 0px; }
+        trough {
+            background: shade($panel_bg_color, 0.7);
+            border-radius: 0px;
+            border-color: shade($panel_bg_color, 0.4);
+        }
+    }
+
+    .tasklist {
+        -XfceTasklist-minimized-icon-lucency: 100;
+
+        image.minimized {
+            opacity: 1;
+        }
+
+        button,
+        button.flat {
+            margin: 3px 2px;
+            padding: 0 4px;
+            border: none;
+            border-radius: 5px;
+            background-image: none;
+            background-color: rgba(255, 255, 255, 0.035);
+            box-shadow: inset 0 -3px rgba(255, 255, 255, 0.30);
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.10);
+                background-image: none;
+                box-shadow: inset 0 -3px rgba(255, 255, 255, 0.55);
+            }
+
+            &:active,
+            &:checked {
+                background-color: rgba(255, 255, 255, 0.035);
+                background-image: none;
+                box-shadow: inset 0 -4px #398ee7;
+            }
+
+            &:active:hover,
+            &:checked:hover {
+                background-color: rgba(255, 255, 255, 0.10);
+                background-image: none;
+                box-shadow: inset 0 -4px #69b0f5;
+            }
+
+            image {
+                padding: 3px;
+            }
+        }
+
+        button.group-button,
+        button.group-button.flat {
+            color: rgba(62, 62, 62, 0.92);
+            background-color: rgba(255, 255, 255, 0.075);
+
+            &:hover {
+                color: rgba(74, 74, 74, 0.96);
+                background-color: rgba(255, 255, 255, 0.14);
+            }
+
+            &:active,
+            &:checked {
+                color: rgba(62, 62, 62, 0.92);
+                background-color: rgba(255, 255, 255, 0.075);
+            }
+
+            &:active:hover,
+            &:checked:hover {
+                color: rgba(74, 74, 74, 0.96);
+                background-color: rgba(255, 255, 255, 0.14);
+            }
+        }
+    }
+
+    &.horizontal .tasklist button label {
+        padding-right: 3px;
+    }
+
+    &.vertical .tasklist button label {
+        padding-bottom: 3px;
+    }
+}
+
+/* Workspace switcher provided by libwnck */
+wnck-pager {
+  &:selected { background-color: shade($selected_bg_color, 0.88); }
+  &:hover { background-color: $selected_bg_color; }
+}
+
+/* Thunar's sidebar top border */
+.thunar {
+  :backdrop { color: $insensitive_fg_color; }
+  toolbar {
+    border-bottom: none;
+    background-color: $bg_color;
+    background-image: none;
+
+    entry { min-height: 24px; }
+  }
+  .sidebar.frame { border-top: 1px solid $borders_color; }
+}
+
+XfdesktopIconView.view {
+  background: transparent;
+  color: $panel_fg_color;
+  border-radius: 3px;
+  &:active {
+    background: rgba(darken($selected_bg_color, 15%), 0.5);
+    text-shadow: 0 1px 1px black;
+  }
+  &:active {
+    background: rgba(darken($selected_bg_color, 15%), 0.5);
+    color: $selected_bg_color;
+    text-shadow: 0 1px 1px black;
+  }
+  .label {
+    text-shadow: 1px 1px 2px black;
+    &:active {
+      color: $selected_fg_color;
+    }
+  }
+  .rubberband {
+    @extend rubberband;
+    border-radius: 0;
+  }
+}
+
+#XfceNotifyWindow {
+    background-color: shade($panel_bg_color, 0.3);
+    color: $panel_fg_color;
+    border-color: shade($panel_bg_color, 0.6);
+    box-shadow: none;
+
+    buttonbox { padding: 0; }
+
+    button {
+        color: $panel_fg_color;
+        background-image: none;
+        border-color: shade($panel_fg_color, 0.35);
+        border-radius: 3px;
+        box-shadow: none;
+        &:hover {
+            background-color: shade($panel_bg_color, 0.4);
+            border-color: shade($panel_fg_color, 0.45);
+        }
+    }
+
+    label#summary {
+        font-weight: bold;
+    }
+
+    progressbar {
+        min-height: 6px;
+        border-radius: 3px;
+        progress {
+            background-image: none;
+            background-color: $panel_fg_color;
+            border: none;
+            box-shadow: none;
+        }
+        trough {
+            background-image: linear-gradient(to bottom,
+                                              shade($panel_bg_color, 0.65),
+                                              shade($panel_bg_color, 1.25)
+                                              );
+            border: 1px solid shade($panel_bg_color, 0.2);
+            border-radius: 3px;
+            padding: 1px 0;
+        }
+    }
+}
+
+/* Xfwm4's alt-tab dialog, aka "tabwin" */
+#xfwm-tabwin {
+    padding: 12px;
+    background-image: none;
+    background-color: transparentize(black, 0.2);
+    color: shade($selected_fg_color, 0.65);
+    text-shadow: 0px 1px transparentize(black, 0.2);
+    border-radius: 12px;
+    /* Set the application icon- and preview-size to 64px */
+    -XfwmTabwinWidget-icon-size: 64px;
+    -XfwmTabwinWidget-preview-size: 128px;
+
+    button {
+        background-image: none;
+        color: $selected_fg_color;
+        font-weight: bold;
+        text-shadow: 0px 1px transparentize(black, 0.2);
+        border: none;
+        border-radius: 6px;
+        box-shadow: none;
+
+        &:active, &:checked, &:active:hover, &:checked:hover {
+            background: transparentize($fg_color, 0.7);
+        }
+        &:hover {
+            background: transparentize($bg_color, 0.9);
+            box-shadow: inset 0 -1px gtkalpha(white, 0.15),
+                        inset 1px 0 gtkalpha(white, 0.15),
+                        inset -1px 0 gtkalpha(white, 0.15),
+                        inset 0 1px gtkalpha(white, 0.15);
+            transition-duration: 50ms;
+        }
+    }
+    .tabwin-app-grid button {
+        min-width: 96px;
+        min-height: 96px;
+    }
+}
+
+#xfce4-terminal-notebook {
+    > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
+    /* Make sure there are no extra borders for the tabs in the terminal apart from at the top */
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+    }
+}

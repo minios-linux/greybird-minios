@@ -1,0 +1,24 @@
+Source: greybird-minios-theme
+Section: x11
+Priority: optional
+Maintainer: crims0n <crims0n@minios.dev>
+Build-Depends:
+ debhelper (>= 11),
+ libgdk-pixbuf2.0-dev,
+ librsvg2-dev,
+ meson,
+ sassc
+Rules-Requires-Root: no
+Standards-Version: 4.6.2
+Homepage: https://github.com/minios-linux/greybird-minios
+
+Package: greybird-minios-theme
+Architecture: all
+Depends:
+ gtk2-engines-murrine,
+ ${misc:Depends}
+Description: Greybird GTK theme adapted for MiniOS
+ Greybird-MiniOS is a fork of the Greybird theme from the Shimmer Project.
+ It retains the original Greybird appearance while integrating MiniOS panel
+ styling for Xfce launchers, task buttons, grouped windows and active-window
+ indicators.

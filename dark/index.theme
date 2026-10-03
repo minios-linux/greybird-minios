@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Greybird-MiniOS-dark
+Comment=Greybird dark theme adapted for MiniOS
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Greybird-MiniOS-dark
+MetacityTheme=Greybird-MiniOS-dark
+IconTheme=Adwaita
+CursorTheme=Adwaita
+ButtonLayout=:minimize,maximize,close
