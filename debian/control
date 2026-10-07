@@ -1,10 +1,10 @@
-Source: greybird-minios-theme
+Source: greybird-minios-gtk-theme
 Section: x11
 Priority: optional
 Maintainer: crims0n <crims0n@minios.dev>
 Build-Depends:
  debhelper (>= 11),
- libgdk-pixbuf2.0-dev,
+ libgdk-pixbuf-2.0-dev | libgdk-pixbuf2.0-dev,
  librsvg2-dev,
  meson,
  sassc
@@ -12,7 +12,7 @@ Rules-Requires-Root: no
 Standards-Version: 4.6.2
 Homepage: https://github.com/minios-linux/greybird-minios
 
-Package: greybird-minios-theme
+Package: greybird-minios-gtk-theme
 Architecture: all
 Depends:
  gtk2-engines-murrine,

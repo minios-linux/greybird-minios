@@ -10,6 +10,17 @@ The theme includes Greybird 3.23.4's desktop-icon selection and backdrop fixes
 for xfdesktop4 4.19 and later. The MiniOS package retains GTK 2 support and
 Bionic-compatible build tools, unlike the Debian sid binary package.
 
+The GTK 3 styles target GTK 3.24, as used by Xfce 4.20. Compiling with Bionic's
+build tools does not imply GTK 3.22 runtime compatibility: upstream properties
+such as `font-feature-settings` require the newer GTK runtime.
+
+The Debian source and binary package are named `greybird-minios-gtk-theme`.
+Packaging uses the unchanged Greybird upstream version with a Debian revision
+(for example, `3.23.4-1`) and the original upstream `.orig.tar.gz`. MiniOS source
+customizations are maintained in this checkout and recorded automatically as a
+single quilt patch when the source package is built. The renamed binary has no
+Provides, Conflicts or Replaces relationship with `greybird-minios-theme`.
+
 ## Upstream README
 
 Greybird

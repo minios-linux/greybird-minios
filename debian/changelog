@@ -7,8 +7,14 @@ greybird-minios-gtk-theme (3.23.4-1) unstable; urgency=medium
     pinned-launcher handling.
   * Theme the MiniOS Show Desktop strip variants inside Greybird-MiniOS.
   * Preserve the Greybird 3.23.4 upstream base for these MiniOS theme fixes.
+  * Rename the binary and source to greybird-minios-gtk-theme without
+    Provides, Conflicts or Replaces for the previous package name.
+  * Accept the current GdkPixbuf development package name while retaining
+    the Bionic package name as a build-dependency alternative.
+  * Use non-native quilt packaging with the original Greybird 3.23.4 archive
+    and keep MiniOS changes in the Debian revision and generated patch.
 
- -- crims0n <crims0n@minios.dev>  Wed, 07 Oct 2026 11:56:55 +0300
+ -- crims0n <crims0n@minios.dev>  Wed, 07 Oct 2026 19:46:42 +0300
 
 greybird-minios-gtk-theme (3.23.4) unstable; urgency=medium
 

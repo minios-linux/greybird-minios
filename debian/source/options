@@ -1,0 +1,4 @@
+# Keep MiniOS customizations separate from the unchanged upstream archive.
+single-debian-patch
+auto-commit
+include-removal

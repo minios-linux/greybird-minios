@@ -1,0 +1,5 @@
+Description: MiniOS theme names, panel styling and build compatibility
+ Adapt Greybird for the MiniOS panel plugins, file chooser and theme names,
+ retaining the original upstream source archive and release version.
+Author: crims0n <crims0n@minios.dev>
+Forwarded: not-needed
