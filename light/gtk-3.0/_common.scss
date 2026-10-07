@@ -3827,9 +3827,38 @@ filechooser {
   }
 
   #pathbarbox {
-    border-bottom: 1px solid $bg_color;
+    border-bottom: 1px solid $borders_color;
+
+    &:backdrop { border-bottom-color: $backdrop_borders_color; }
     stack { background-color: $bg_color; }
   }
+
+  treeview.view header button {
+    border-top: 1px solid $borders_color;
+
+    &:backdrop { border-top-color: $backdrop_borders_color; }
+  }
+
+  .view:selected,
+  treeview.view:selected {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+    background-image: image($selected_bg_color);
+
+    &:backdrop {
+      color: $filechooser_backdrop_selected_fg_color;
+      background-color: $filechooser_backdrop_selected_bg_color;
+      background-image: image($filechooser_backdrop_selected_bg_color);
+    }
+  }
+}
+
+// GtkFileChooserWidget embedded in a regular GtkDialog has the action box
+// as a sibling instead of a child of the file chooser.
+filechooser + .dialog-action-box {
+  border-top: 1px solid $borders_color;
+
+  &:backdrop { border-top-color: $backdrop_borders_color; }
 }
 
 filechooserbutton:drop(active) {
@@ -3942,7 +3971,13 @@ stacksidebar {
 $_placesidebar_icons_opacity: 0.7;
 
 placessidebar {
-  > viewport.frame { border-style: none; }
+  > viewport.frame {
+    border-style: solid none none;
+    border-width: 1px;
+    border-color: $borders_color;
+
+    &:backdrop { border-color: $backdrop_borders_color; }
+  }
 
   row {
     // Needs overriding of the GtkListBoxRow padding
@@ -3969,6 +4004,13 @@ placessidebar {
     image.sidebar-icon {
       &:dir(ltr) { padding-right: 8px; }
       &:dir(rtl) { padding-left: 8px; }
+    }
+
+    &:selected image.sidebar-icon {
+      color: $fg_color;
+      -gtk-icon-effect: none;
+
+      &:backdrop { color: $backdrop_fg_color; }
     }
 
     label.sidebar-label {

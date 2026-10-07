@@ -1,4 +1,16 @@
-greybird-minios-theme (3.23.4) unstable; urgency=medium
+greybird-minios-gtk-theme (3.23.4-1) unstable; urgency=medium
+
+  * Restore consistent file-chooser selection and separator styling in active
+    and backdrop states, including embedded dialog action areas.
+  * Keep selected places-sidebar icons readable without GTK icon effects.
+  * Add MiniOS tasklist styling with rounded running-state indicators and
+    pinned-launcher handling.
+  * Theme the MiniOS Show Desktop strip variants inside Greybird-MiniOS.
+  * Preserve the Greybird 3.23.4 upstream base for these MiniOS theme fixes.
+
+ -- crims0n <crims0n@minios.dev>  Wed, 07 Oct 2026 11:56:55 +0300
+
+greybird-minios-gtk-theme (3.23.4) unstable; urgency=medium
 
   * Rebase the theme on Debian sid greybird-gtk-theme 3.23.4-2.
   * Include upstream desktop-icon selection and backdrop fixes for
@@ -7,7 +19,7 @@ greybird-minios-theme (3.23.4) unstable; urgency=medium
 
  -- crims0n <crims0n@minios.dev>  Sun, 04 Oct 2026 02:10:58 +0300
 
-greybird-minios-theme (3.23.3) unstable; urgency=medium
+greybird-minios-gtk-theme (3.23.3) unstable; urgency=medium
 
   * Fork Debian greybird-gtk-theme 3.23.3-1 for MiniOS.
   * Install as Greybird-MiniOS variants alongside the original Greybird theme.

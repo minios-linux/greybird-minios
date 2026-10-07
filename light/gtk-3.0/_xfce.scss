@@ -88,6 +88,58 @@ $variant: 'light';
         }
     }
 
+    // MiniOS Show Desktop plugin.  The iconless modes use the same
+    // visual language as the rest of the MiniOS panel and are fully themeable.
+    #minios-showdesktop-button {
+        margin: 3px 2px;
+        padding: 0 4px;
+        border: none;
+        border-radius: 5px;
+        background-image: none;
+        background-color: transparent;
+        box-shadow: none;
+
+        &:hover { background-color: rgba(255, 255, 255, 0.10); }
+        &:checked { background-color: rgba(255, 255, 255, 0.20); }
+
+        image { opacity: 1; }
+
+        &.minios-strip {
+            padding: 0;
+            background-image: none;
+
+            &.strip-soft,
+            &.strip-wide {
+                margin: 5px 0;
+                background-color: rgba(255, 255, 255, 0.14);
+                box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.24);
+                    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+                }
+
+                &:checked {
+                    background-color: rgba(255, 255, 255, 0.30);
+                    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+                }
+            }
+
+            &.strip-soft { border-radius: 3px; }
+            &.strip-wide { border-radius: 4px; }
+
+            &.strip-thin {
+                margin: 5px 0;
+                border-radius: 2px;
+                background-color: rgba(255, 255, 255, 0.14);
+                box-shadow: none;
+
+                &:hover { background-color: rgba(255, 255, 255, 0.24); }
+                &:checked { background-color: rgba(255, 255, 255, 0.30); }
+            }
+        }
+    }
+
     entry { caret-color: $text_color; }
 
     menu {
@@ -134,59 +186,55 @@ $variant: 'light';
 
         button,
         button.flat {
-            margin: 3px 2px;
-            padding: 0 4px;
+            margin: 4px 2px;
+            padding: 0;
+            min-width: 40px;
+            min-height: 40px;
             border: none;
             border-radius: 5px;
-            background-image: none;
-            background-color: rgba(255, 255, 255, 0.035);
-            box-shadow: inset 0 -3px rgba(255, 255, 255, 0.30);
+            background-color: transparent;
+            background-image: url("assets/task-indicator-inactive.svg");
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            box-shadow: none;
+            transition: background-color 100ms ease-out;
 
             &:hover {
-                background-color: rgba(255, 255, 255, 0.10);
-                background-image: none;
-                box-shadow: inset 0 -3px rgba(255, 255, 255, 0.55);
+                background-color: rgba(255, 255, 255, 0.08);
+                background-image: url("assets/task-indicator-inactive.svg");
+                background-position: center bottom;
+                background-repeat: no-repeat;
+                box-shadow: none;
             }
 
             &:active,
             &:checked {
-                background-color: rgba(255, 255, 255, 0.035);
-                background-image: none;
-                box-shadow: inset 0 -4px #398ee7;
+                background-color: rgba(255, 255, 255, 0.11);
+                background-image: url("assets/task-indicator-active.svg");
+                background-position: center bottom;
+                background-repeat: no-repeat;
+                box-shadow: none;
             }
 
             &:active:hover,
             &:checked:hover {
-                background-color: rgba(255, 255, 255, 0.10);
-                background-image: none;
-                box-shadow: inset 0 -4px #69b0f5;
+                background-color: rgba(255, 255, 255, 0.14);
+                background-image: url("assets/task-indicator-active.svg");
+                background-position: center bottom;
+                background-repeat: no-repeat;
+                box-shadow: none;
             }
 
             image {
                 padding: 3px;
-            }
-        }
-
-        button.group-button,
-        button.group-button.flat {
-            color: rgba(62, 62, 62, 0.92);
-            background-color: rgba(255, 255, 255, 0.075);
-
-            &:hover {
-                color: rgba(74, 74, 74, 0.96);
-                background-color: rgba(255, 255, 255, 0.14);
+                opacity: 1;
             }
 
-            &:active,
-            &:checked {
-                color: rgba(62, 62, 62, 0.92);
-                background-color: rgba(255, 255, 255, 0.075);
-            }
-
-            &:active:hover,
-            &:checked:hover {
-                color: rgba(74, 74, 74, 0.96);
-                background-color: rgba(255, 255, 255, 0.14);
+            &.pinned-button,
+            &.pinned-button:hover,
+            &.pinned-button:active,
+            &.pinned-button:checked {
+                background-image: none;
             }
         }
     }

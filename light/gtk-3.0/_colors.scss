@@ -66,6 +66,10 @@ $backdrop_borders_color: mix($borders_color, $bg_color, 90%);
 $backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 35%);
 $backdrop_sidebar_bg_color: mix($backdrop_bg_color, $backdrop_base_color, 50%);
 
+// GtkFileChooser keeps selection blue when the dialog is inactive, but dims it.
+$filechooser_backdrop_selected_bg_color: if($variant == 'light', mix($selected_bg_color, $backdrop_base_color, 50%), #21456b);
+$filechooser_backdrop_selected_fg_color: if($variant == 'light', $fg_color, $backdrop_text_color);
+
 $backdrop_scrollbar_bg_color: darken($backdrop_bg_color, 3%);
 $backdrop_scrollbar_slider_color: lighten($scrollbar_slider_color, 35%);
 
