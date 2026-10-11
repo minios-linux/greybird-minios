@@ -6,6 +6,10 @@ the original theme under the `Greybird-MiniOS` names. MiniOS-specific changes
 are intentionally kept in the theme sources; the first customization is the
 Xfce panel/task-list styling previously carried as per-user GTK CSS.
 
+The default light and dark Xfwm4 themes use five-pixel side and bottom borders
+and a five-pixel top resize area, making window edges easier to grab. Border
+fills match the title bar and retain the original one-pixel outer outline.
+
 The theme includes Greybird 3.23.4's desktop-icon selection and backdrop fixes
 for xfdesktop4 4.19 and later. The MiniOS package retains GTK 2 support and
 Bionic-compatible build tools, unlike the Debian sid binary package.
@@ -16,9 +20,15 @@ such as `font-feature-settings` require the newer GTK runtime.
 
 The Debian source and binary package are named `greybird-minios-gtk-theme`.
 Packaging uses the unchanged Greybird upstream version with a Debian revision
-(for example, `3.23.4-1`) and the original upstream `.orig.tar.gz`. MiniOS source
+(currently `3.23.4-2minios1`, after published `3.23.4-1`) and the original
+upstream `.orig.tar.gz`. MiniOS source
 customizations are maintained in this checkout and recorded automatically as a
-single quilt patch when the source package is built. The renamed binary has no
+single quilt patch when the source package is built. The side and bottom-corner
+XPMs are kept in each variant's `xfwm4-minios/` directory. Meson installs these
+regular files in place of the upstream aliases, which remain intact in the
+source tree because quilt cannot encode symlink-to-file conversions. Both
+Debian packages and plain Meson installs use the wider decorations. The renamed
+binary has no
 Provides, Conflicts or Replaces relationship with `greybird-minios-theme`.
 
 ## Upstream README

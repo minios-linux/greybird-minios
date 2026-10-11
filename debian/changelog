@@ -1,3 +1,10 @@
+greybird-minios-gtk-theme (3.23.4-2minios1) unstable; urgency=medium
+
+  * Use five-pixel resize borders in the light and dark Xfwm4 themes,
+    with title-bar-matched fills and the original one-pixel outer outline.
+
+ -- crims0n <crims0n@minios.dev>  Fri, 09 Oct 2026 23:57:10 +0300
+
 greybird-minios-gtk-theme (3.23.4-1) unstable; urgency=medium
 
   * Restore consistent file-chooser selection and separator styling in active

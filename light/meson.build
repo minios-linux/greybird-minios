@@ -16,7 +16,16 @@ if not get_option('flatpak')
     install_subdir('metacity-1', install_dir : theme_path)
     install_subdir('openbox-3', install_dir : theme_path)
     install_subdir('xfce-notify-4.0', install_dir : theme_path)
-    install_subdir('xfwm4', install_dir : theme_path)
+    # Keep upstream symlinks in the source: quilt cannot encode type changes.
+    install_subdir('xfwm4', install_dir : theme_path,
+                   exclude_files : [
+                       'left-active.xpm', 'left-inactive.xpm',
+                       'right-active.xpm', 'right-inactive.xpm',
+                       'bottom-left-active.xpm', 'bottom-left-inactive.xpm',
+                       'bottom-right-active.xpm', 'bottom-right-inactive.xpm'
+                   ])
+    install_subdir('xfwm4-minios', strip_directory : true,
+                   install_dir : join_paths(theme_path, 'xfwm4'))
     install_subdir('plank', install_dir : theme_path)
     install_subdir('unity', install_dir : theme_path)
     install_subdir('variants/a11y/xfwm4', install_dir : a11y_theme_path)
